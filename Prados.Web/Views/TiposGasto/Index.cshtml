@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Prados.Web.Data.Entities.TiposGastotbl>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="content-wrapper">
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+
+
+                            <h2 style="text-align:center">Tipos de Gasto</h2>
+                            <p>
+                                <a asp-action="Create" class="btn btn-success"><img src="~/images/icon/ADD.png" width="30" height="30"></a>
+                            </p>
+
+                        </div>
+                        <div class="card-body ">
+                            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <flash dismissable="true" />
+                                        <table id="example1" class="table table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="example1_info">
+                                            <thead>
+                                                <tr>
+                                                    <th style="text-align:center">
+                                                        @Html.DisplayNameFor(model => model.Tip_Descripcion)
+                                                    </th>
+                                                    <th style="text-align:center"> Eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td style="text-align:center">
+                                                            @Html.DisplayFor(modelItem => item.Tip_Descripcion)
+                                                        </td>
+                                                        <td style="width: 70px; height: 2px;">
+                                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger center-block"><img src="~/images/icon/eliminar.png" width="30" height="30"></a>
+
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+<!-- jQuery -->
+
+
+
+
+
+
+
+
+
+
+@section scripts{
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+
+
+        });
+    </script>
+
+}

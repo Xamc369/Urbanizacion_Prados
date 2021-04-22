@@ -1,0 +1,212 @@
+﻿@model IEnumerable<Prados.Web.Data.Entities.Pagostbl>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | DataTables</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/template/plugins/fontawesome-free/css/all.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/template/dist/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="content-wrapper">
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+
+                            </div>
+                            <div class="card-body">
+                                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table id="example1" class="table table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="example1_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                                                            @Html.DisplayNameFor(model => model.PAG_FECHAPAGADO)
+                                                        </th>
+                                                        <th style="text-align:center">
+                                                            @Html.DisplayNameFor(model => model.Anio)
+                                                        </th>
+                                                        <th style="text-align:center">
+                                                            @Html.DisplayNameFor(model => model.Mes)
+                                                        </th>
+                                                        <th style="text-align:center">
+                                                            @Html.DisplayNameFor(model => model.Val)
+                                                        </th>
+                                                        <th style="text-align:center">
+                                                            @Html.DisplayNameFor(model => model.Tipos)
+                                                        </th>
+                                                        <th style="text-align:center">
+                                                            @Html.DisplayNameFor(model => model.PuntodePago)
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model)
+                                                    {
+                                                    <tr class="odd">
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.PAG_FECHAPAGADO)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Anio.Ani_Descripcion)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Mes.Mes_Descripcion)
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Val.Val_Valor)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Tipos.Tip_Descripcion)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.PuntodePago.Pun_Descripcion)
+                                                        </td>
+                                                    </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    @*<div class="row">
+                                            <div class="col-sm-12 col-md-5">
+                                                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
+                                                    Mostrando 1 de 5 de 5 entradas
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-7si amo">
+                                                <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                                                    <ul class="pagination">
+                                                        <li class="paginate_button page-item previous disabled" id="example1_previous">
+                                                            <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Anterior</a>
+                                                        </li>
+                                                        <li class="paginate_button page-item active">
+                                                            <a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                                                        </li>
+                                                        <li class="paginate_button page-item next disabled" id="example1_next">
+                                                            <a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">Siguiente</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- jQuery -->
+    <script src="~/template/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="~/template/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/template/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/template/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/template/plugins/jszip/jszip.min.js"></script>
+    <script src="~/template/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/template/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/template/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/template/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/template/dist/js/demo.js"></script>
+    <!-- Page specific script -->
+
+    @section scripts{
+
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#example1").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                    "responsive": true,
+                });
+
+
+            });
+        </script>
+
+    }
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+

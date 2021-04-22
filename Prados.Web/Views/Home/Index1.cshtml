@@ -1,0 +1,247 @@
+﻿
+@model IEnumerable<Prados.Web.Data.Entities.Noticiastbl>
+
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="~/assets/css/structure.css">
+<style>
+    /* Make the image fully responsive */
+    .carousel-inner img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+
+
+<div class="content-wrapper">
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+
+
+                    <!-- Inicio de Slider-->
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                            <li data-target="#demo" data-slide-to="2"></li>
+                        </ul>
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="~/images/imag1.jpg" alt="Los Angeles" width="1100" height="500">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/images/imag1.jpg" alt="Chicago" width="1100" height="500">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/images/imag1.jpg" alt="New York" width="1100" height="500">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                    <!--  Fin de Slider-->
+                    <!-- Inicio Noticias-->
+
+
+                    <div class="row" style="margin-top:15px">
+                        <div class=" col-sm-6 col-md-8 col-lg-9">
+                            <div class="row">
+
+
+
+                                <table id="example2" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="limeblue_bg"><h5 style="color:white">Noticias Recientes</h5> </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @foreach (var item in Model.Where(n => n.Not_Estado == 'A').OrderByDescending(model => model.Id))
+                                                {
+
+                                                    <div class="card">
+
+                                                        <div class="single_stuff wow fadeInDown">
+                                                            <div class="single_stuff_img">
+                                                                <a>
+                                                                    <img src="@Url.Content(item.ImageUrl)" alt="" class="f-left imagenNoticia" />
+
+                                                                </a>
+                                                            </div>
+                                                            <div class="">
+                                                                <div class="single_sarticle_inner">
+                                                                    <a class="stuff_category"
+                                                       <p class="f-left "><a>|<strong> Autor:  </strong>@Html.DisplayFor(modelItem => item.Not_Autor)</a> | </p>
+                                                    <div class="stuff_article_inner">
+                                                        <span class="stuff_date">
+                                                            @Html.DisplayFor(modelItem => item.Not_Fecha.Month)
+                                                            <br />
+
+                                                            <strong> @Html.DisplayFor(modelItem => item.Not_Fecha.Day)</strong>
+                                                        </span>
+                                                        <h2><a href="pages/single.html"> @Html.DisplayFor(modelItem => item.Not_Titulo)</a></h2>
+                                                        <p>
+                                                            @Html.DisplayFor(modelItem => item.Not_Descripcion)
+
+                                                        </p>
+                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+
+                                                }
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-sm-5 col-md-2 col-lg-3">
+                            <div class="row">
+                                <div class="middlebar_content">
+
+                                    <div class="popular_categori  wow fadeInUp">
+                                        <h2 class="limeblue_bg">Urbanización prados del condado</h2>
+                                        <ul class="poplr_catgnva">
+                                            <div id="aside" class="cardcont" style="margin-top:20px">
+
+
+                                                <p class="box">
+                                                    <img src="../tmp/logo80.jpg" alt="" class="f-left" /> My name is Jessie Doe. I´m 26 years old and I´m living in the New York City.<br />
+                                                    <a href="#">More about me</a>
+                                                </p>
+                                                <h3 class="nomb">Sponsors</h3>
+                                                <ul class="sponsors">
+                                                    <li>
+                                                        <a href="#">Lorem ipsum dolor</a><br />
+                                                        Donec libero. Suspendisse bibendum
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Dui pede condimentum</a><br />
+                                                        Phasellus suscipit, leo a pharetra
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Condimentum lorem</a><br />
+                                                        Tellus eleifend magna eget
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Donec mattis</a><br />
+                                                        purus nec placerat bibendum
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </ul>
+                                    </div>
+
+
+
+
+
+
+                                    <h2 class="yellow_bg">What's Hot</h2>
+                                    <div class="middlebar_content_inner wow fadeInUp">
+                                        <ul class="middlebar_nav">
+                                            <li>
+                                                <a class="mbar_thubnail" href="#"><img src="images/hot_img1.jpg" alt=""></a> <a class="mbar_title" href="#">Sed luctus semper odio aliquam rhoncus</a>
+                                            </li>
+                                            <li>
+                                                <a class="mbar_thubnail" href="#"><img src="images/hot_img2.jpg" alt=""></a> <a class="mbar_title" href="#">Sed luctus semper odio aliquam rhoncus</a>
+                                            </li>
+                                            <li>
+                                                <a class="mbar_thubnail" href="#"><img src="images/hot_img1.jpg" alt=""></a> <a class="mbar_title" href="#">Sed luctus semper odio aliquam rhoncus</a>
+                                            </li>
+                                            <li>
+                                                <a class="mbar_thubnail" href="#"><img src="images/hot_img1.jpg" alt=""></a> <a class="mbar_title" href="#">Sed luctus semper odio aliquam rhoncus</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Fin Noticias -->
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+</script>
+
+
+

@@ -1,0 +1,75 @@
+﻿@model Prados.Web.Models.EgresoViewModel
+
+@{ ViewData["Title"] = "Edit"; }
+
+
+<div class="content-wrapper">
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 style="text-align:center">Modificar Egreso</h2>
+                        </div>
+                        <div class="card-body ">
+                            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <form asp-action="Edit" enctype="multipart/form-data">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <input type="hidden" asp-for="Id" />
+
+                                            <div class="form-group">
+                                                <label asp-for="Egr_FechadePago" class="control-label"></label>
+                                                <input asp-for="Egr_FechadePago" class="form-control" />
+                                                <span asp-validation-for="Egr_FechadePago" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="AnioId" class="control-label"></label>
+                                                <select asp-for="AnioId" asp-items="Model.Anios1" class="form-control"></select>
+                                                <span asp-validation-for="AnioId" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="MesId" class="control-label"></label>
+                                                <select asp-for="MesId" asp-items="Model.Meses1" class="form-control"></select>
+                                                <span asp-validation-for="MesId" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="TipoId1" class="control-label"></label>
+                                                <select asp-for="TipoId1" asp-items="Model.Tipos1" class="form-control"></select>
+                                                <span asp-validation-for="MesId" class="text-danger"></span>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label asp-for="Egr_Valor" class="control-label"></label>
+                                                <input asp-for="Egr_Valor" class="form-control" />
+                                                <span asp-validation-for="Egr_Valor" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" value="Modificar" class="btn btn-default" />
+                                                <div class="form-group">
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div>
+                                            <a asp-action="Index">Back to List</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+<!-- jQuery -->

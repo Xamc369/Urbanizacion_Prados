@@ -1,0 +1,149 @@
+﻿@model Prados.Web.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="">
+    <!-- Content Header (Page header) -->
+    
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <div class="">
+        <div class="">
+            <div class="">
+
+                <!--Inicio login-->
+                <div class="hold-transition login-page" style="background-color: azure" >
+
+
+
+                    <div class="login-box" >
+                        <!-- /.login-logo -->
+                        <div class="card card-outline card-primary">
+                            <div class="card-header text-center">
+
+                                <p class="box">
+                                    <img src="../tmp/logo80.jpg" alt="" class="align-self-center" style="width:100px;height:100px"/><br />
+                                </p>
+                                <a asp-area="" asp-controller="Home" asp-action="Index" class="h2"><b>Urbanización<br />Prados del Condado</b></a>
+                            </div>
+                            <div class="card-body">
+                                <p class="login-box-msg">Iniciar Sesión</p>
+
+                                <div asp-validation-summary="ModelOnly"></div>
+                                <!-- <label asp-for="Username">Usuario</label> -->
+
+
+
+
+                                <form method="post">
+                                    <div class="input-group mb-3">
+                                        <input asp-for="Username" class="form-control" type="email" placeholder="Usuario" />
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span asp-validation-for="Username" class="fas fa-envelope"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- <label asp-for="Password">Contraseña</label> -->
+
+
+
+                                    <div class="input-group mb-3">
+                                        <input asp-for="Password" type="password" class="form-control" placeholder="Contraseña" />
+
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span asp-validation-for="Password" class="fas fa-lock"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="icheck-primary">
+                                                <input asp-for="RememberMe" type="checkbox" id="remember" />
+                                                <label asp-for="RememberMe" for="remember">
+                                                    ¿Recuérdame?
+
+                                                </label>
+                                                <span asp-validation-for="RememberMe" class="text-warning"></span>
+                                                <a asp-action="RecoverPassword" class="btn" style="color:green">Olvidó su clave?</a>
+                                            </div>
+                                        </div>
+                                        <!-- /.col -->
+
+
+
+                                        <div class="col-4">
+                                            <input type="submit" value="Iniciar" class="btn btn-success btn-block" />
+                                            <a asp-action="Register"></a>
+                                        </div>
+
+
+                                        <!-- /.col -->
+                                    </div>
+                                </form>
+
+                                <div class="social-auth-links text-center mt-2 mb-3">
+                                    <a href="https://www.facebook.com/groups/1107628373025736" class="btn btn-block btn-primary">
+                                        <i class="fab fa-facebook mr-2"></i> Facebook
+                                    </a>
+                                    @*<a href="#" class="btn btn-block btn-danger">
+                                        <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                                    </a>*@
+                                </div>
+                                <!-- /.social-auth-links -->
+
+                                <div class="text-center p-t-46 p-b-20">
+
+                                </div>
+                                @*<a asp-action="RecoverPassword" class="btn btn-link">¿Olvidaste tu contraseña?</a>*@
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+
+                </div>
+
+                <!--Fin login-->
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

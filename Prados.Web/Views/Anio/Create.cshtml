@@ -1,0 +1,99 @@
+﻿@model Prados.Web.Data.Entities.Aniostbl
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="content-wrapper">
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+
+
+                            <h2 style="text-align:center">Noticiero Prados del Condado</h2>
+
+                            <h3 class="card-title">Nuevo</h3>
+                            </br>
+                            <p>
+
+                                <a asp-action="Create" class="btn btn-success"><img src="~/images/icon/ADD.png" width="30" height="30"></a>
+                            </p>
+                        </div>
+                        <div class="card-body ">
+                            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <form asp-action="Create">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <div class="form-group">
+                                                <label asp-for="Ani_Descripcion" class="control-label"></label>
+                                                <input asp-for="Ani_Descripcion" class="form-control" pattern=".*20.*" title="El año debe seguir el siguiente formato 20XX" />
+                                                <span asp-validation-for="Ani_Descripcion" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" value="Create" class="btn btn-default" />
+                                            </div>
+                                        </form>
+                                        <div>
+                                            <a asp-action="Index">Back to List</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+<!-- jQuery -->
+
+
+
+
+
+
+
+
+
+
+@section scripts{
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+
+
+        });
+    </script>
+
+}
+
+
+
+
+
